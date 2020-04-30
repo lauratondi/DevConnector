@@ -8,6 +8,7 @@ import Alert from './components/layout/Alert';
 // redux
 import { Provider } from 'react-redux';
 import store from './store';
+
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
@@ -21,7 +22,7 @@ const App = () => {
   // to keep registered/logged the user
   useEffect(() => {
     store.dispatch(loadUser());
-  });
+  }, []);
 
   return (
     <Provider store={store}>
