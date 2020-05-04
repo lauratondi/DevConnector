@@ -44,8 +44,7 @@ const EditProfile = ({
       youtube: loading || !profile.youtube ? '' : profile.youtube,
       instagram: loading || !profile.instagram ? '' : profile.instagram,
     });
-    // eslint-disable-next-line
-  }, [loading]); //Loading as dependecy, so the useEffect run when data is loaded
+  }, [loading, getCurrentProfile]); //Loading as dependecy, so the useEffect run when data is loaded
 
   const {
     company,
