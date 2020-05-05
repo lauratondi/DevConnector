@@ -29,8 +29,13 @@ export default function (state = initialState, action) {
       };
 
     case REGISTER_SUCCESS:
+      return {
+        ...state,
+        ...payload,
+        isAuthenticated: true,
+        loading: false,
+      };
     case LOGIN_SUCCESS:
-      // localStorage.setItem('token', payload.token); I remove it because I added it in utils/setAuthToken
       return {
         ...state,
         ...payload,
@@ -39,18 +44,24 @@ export default function (state = initialState, action) {
       };
 
     case REGISTER_FAIL:
-    case AUTH_ERROR:
     case LOGIN_FAIL:
-    case LOGOUT:
     case ACCOUNT_DELETED:
-      // localStorage.removeItem('token');
       return {
         ...state,
         token: null,
         isAuthenticated: false,
         loading: false,
+        user: null,
       };
-
+    case AUTH_ERROR:
+    case LOGOUT:
+      return {
+        ...state,
+        token: null,
+        isAuthenticated: false,
+        loading: false,
+        user: null,
+      };
     default:
       return state;
   }
