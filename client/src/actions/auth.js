@@ -10,14 +10,14 @@ import {
   CLEAR_PROFILE,
 } from './types';
 import axios from 'axios';
-import setAuthToken from '../utils/setAuthToken';
+// import setAuthToken from '../utils/setAuthToken';
 
 // LOAD USER
 export const loadUser = () => async (dispatch) => {
   // set the token in the headers if there is one
-  if (localStorage.token) {
-    setAuthToken(localStorage.token);
-  }
+  // if (localStorage.token) {
+  //   setAuthToken(localStorage.token);
+  // } Removed because I added local storage in utils/setAuthToken
   try {
     const res = await axios.get('/api/auth');
     dispatch({
