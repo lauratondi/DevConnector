@@ -3,6 +3,7 @@ import {
   POST_ERROR,
   UPDATE_LIKES,
   DELETE_POST,
+  ADD_POST,
 } from '../actions/types';
 
 const initialState = {
@@ -22,11 +23,16 @@ export default function (state = initialState, action) {
         posts: payload,
         loading: false,
       };
+    case ADD_POST:
+      return {
+        ...state,
+        posts: [payload, ...state.posts], // We wanna return the new post(payload first so the new post will be the last one showed), and the current array [...state.posts], so we make a copy of our posts array
+        loading: false,
+      };
     case DELETE_POST:
       return {
         ...state,
-        posts: state.posts.filter((post) => post._id !== payload),
-        // We are returning all posts but not the one is matching(post._id !== payload)
+        posts: state.posts.filter((post) => post._id !== payload), //We are returning all posts but not the one is matching(post._id !== payload)
         loading: false,
       };
     case POST_ERROR:
