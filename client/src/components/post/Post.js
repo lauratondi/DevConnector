@@ -5,6 +5,7 @@ import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
 import { getPost } from '../../actions/post';
 import PostId from './PostId';
+import CommentForm from './CommentForm';
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
   // match because we need to pull out the ID from url
@@ -21,6 +22,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
         Back to Posts
       </Link>
       <PostId post={post} />
+      <CommentForm postId={post._id} />
     </Fragment>
   );
 };
