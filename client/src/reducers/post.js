@@ -1,4 +1,4 @@
-import { GET_POSTS, POST_ERROR } from '../actions/types';
+import { GET_POSTS, POST_ERROR, UPDATE_LIKES } from '../actions/types';
 
 const initialState = {
   posts: [],
@@ -21,6 +21,17 @@ export default function (state = initialState, action) {
       return {
         ...state,
         error: payload,
+        loading: false,
+      };
+    case UPDATE_LIKES:
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post._id === payload.id ? { ...post, likes: payload.likes } : post
+        ),
+        // map through the posts for each post check if it's the correct one (if it match the payloadId)
+        // if it does return the new state with everything is in the post and the manipulated likes if it doesn't
+        // match the id just return the post (= do nothing)
         loading: false,
       };
     default:
