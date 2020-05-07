@@ -1,0 +1,7 @@
+{
+  "mongoURI": "mongodb+srv://Laura123:Laura123@devconnector-msviz.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "5f25fb23f15853729417",
+  "githubSecret": "6e89ac7bf2d1cb7a7adcb7041015acfacffb5b99",
+  "githubToken": " d0b98092fb1e770f7727d40a04b8b3226f79f0e3"
+}

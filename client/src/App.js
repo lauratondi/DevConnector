@@ -28,7 +28,6 @@ if (localStorage.token) {
 }
 
 const App = () => {
-  // to keep registered/logged the user
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
